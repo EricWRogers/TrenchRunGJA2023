@@ -18,11 +18,20 @@ public class JunkPortal : MonoBehaviour
             Vector3.Distance(transform.position,radiusHandle.position)
         );
 
-        GameObject gO = Instantiate(junk,
-            eye.transform.position, Quaternion.identity);
+        GameObject gO = SuperPupSystems.Helper.SimpleObjectPool.Instance.SpawnFromPool(
+            "trash_code",
+            eye.transform.position,
+            Quaternion.identity
+        );
+        
         gO.transform.LookAt(positionOnPoint);
 
-        gO.GetComponent<Rigidbody>().AddForce(
+        Rigidbody rb = gO.GetComponent<Rigidbody>();
+
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        rb.AddForce(
             gO.transform.forward * Random.Range(minForce, maxForce),
             ForceMode.Impulse
         );

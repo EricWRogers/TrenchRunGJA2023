@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5578700881280337938}
   - component: {fileID: 3545829548133524889}
   - component: {fileID: 6581845055935910753}
+  - component: {fileID: -9080272292995283850}
   m_Layer: 0
   m_Name: TrashCube
   m_TagString: Untagged
@@ -133,3 +134,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-9080272292995283850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7504239587356616926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1be7e0e90bb3eda85706947cd9848e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -419,9 +419,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - code: 
-    prefab: {fileID: 0}
-    size: 0
+  - code: trash_code
+    prefab: {fileID: 7504239587356616926, guid: 4ceb9292d2c12c6b2bd3ba57e7dee6a6,
+      type: 3}
+    size: 5
 --- !u!4 &1636360859
 Transform:
   m_ObjectHideFlags: 0

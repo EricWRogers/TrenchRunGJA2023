@@ -278,7 +278,7 @@ Transform:
   m_Children:
   - {fileID: 862815261795180321}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &31487006480867300
 Rigidbody:
@@ -319,11 +319,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79914513fb6e48f45b1e0ac232d8b35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseGravity: 12
+  mouseGravity: 1.5
+  turnFactor: 10
   speed: 30
-  maxBankAngle: 30
+  maxBankAngle: 90
   bankSpeed: 1.15
   rotationSpeed: 50
+  acceleration: 100
+  bankRotationSmoothness: 1
   rotationReturnSpeed: 5
   rotateRange: 0.05
 --- !u!114 &6647552182527429696

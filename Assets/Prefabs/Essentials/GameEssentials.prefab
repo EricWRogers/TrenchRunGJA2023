@@ -58,10 +58,10 @@ MonoBehaviour:
   m_JoinAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: b3dc6215-8e43-40f0-8928-38aeaceb76ee
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -120,5 +120,5 @@ Transform:
   m_Children:
   - {fileID: 2988093656113736536}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

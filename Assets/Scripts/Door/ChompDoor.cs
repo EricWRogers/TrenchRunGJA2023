@@ -22,7 +22,6 @@ public class ChompDoor : MonoBehaviour
 
     void Update() {
         if (closing) {
-            Debug.Log("1");
             float moveDistance = closingSpeed * Time.deltaTime;
 
             if (leftDoor.transform.position != closedLeftDoorPosition) {
@@ -30,7 +29,7 @@ public class ChompDoor : MonoBehaviour
                     leftDoor.transform.position = closedLeftDoorPosition;
                 else
                     leftDoor.transform.position += (closedLeftDoorPosition - leftDoor.transform.position).normalized * moveDistance;
-                Debug.Log("2");
+                
                 if (Vector3.Distance(rightDoor.transform.position, closedRightDoorPosition) < moveDistance) {
                     rightDoor.transform.position = closedRightDoorPosition;
                 }

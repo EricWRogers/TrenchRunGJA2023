@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
-[RequireComponent(typeof(PlayerInput))]
+//[RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerController))]
 public class PlayerInputHandler : MonoBehaviour
 {
     [HideInInspector]
     public MainPlayer controls;
 
-    private PlayerInput playerInput;
+    [HideInInspector]
+    public PlayerInput playerInput;
 
     private PlayerController pCon;
 
@@ -20,9 +21,10 @@ public class PlayerInputHandler : MonoBehaviour
         controls = new MainPlayer();
 
         pCon = GetComponent<PlayerController>();
-        playerInput = GetComponent<PlayerInput>();
+    }
 
-
+    public void InitializeInput()
+    {
         playerInput.onActionTriggered += Input_onActionTriggered;
     }
 

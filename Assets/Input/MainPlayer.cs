@@ -125,7 +125,7 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""55ac9459-d50c-4ed8-aefe-13c986e9d849"",
-                    ""path"": """",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781cc897cf8675041a751163b51f97dd, type: 3}
   m_Name: HDRenderPipelineGlobalSettings
   m_EditorClassIdentifier: 
-  m_Version: 5
-  m_ShaderVariantLogLevel: 0
-  m_ExportShaderVariants: 1
   m_DefaultVolumeProfile: {fileID: 11400000, guid: 14b392ee213d25a48b1feddbd9f5a9be,
     type: 2}
   m_LookDevVolumeProfile: {fileID: 11400000, guid: 4594f4a3fb14247e192bcca6dc23c8ed,
@@ -104,12 +101,16 @@ MonoBehaviour:
     serializedHasVolumes:
     - sceneGUID: 8124e5870f4fd4c779e7a5f994e84ad1
       hasProbeVolumes: 0
-    - sceneGUID: 00000000000000000000000000000000
+    - sceneGUID: 01d353bad44b29f45a10d549197f371b
+      hasProbeVolumes: 0
+    - sceneGUID: 11341a64301d315c3a456a45551640ad
       hasProbeVolumes: 0
     serializedProfiles:
     - sceneGUID: 8124e5870f4fd4c779e7a5f994e84ad1
       profile: {fileID: 11400000, guid: e93986578188ab8b6af3d1e76242d761, type: 2}
-    - sceneGUID: 00000000000000000000000000000000
+    - sceneGUID: 01d353bad44b29f45a10d549197f371b
+      profile: {fileID: 11400000, guid: e93986578188ab8b6af3d1e76242d761, type: 2}
+    - sceneGUID: 11341a64301d315c3a456a45551640ad
       profile: {fileID: 11400000, guid: e93986578188ab8b6af3d1e76242d761, type: 2}
     serializedBakeSettings:
     - sceneGUID: 8124e5870f4fd4c779e7a5f994e84ad1
@@ -130,7 +131,25 @@ MonoBehaviour:
           collisionMask:
             serializedVersion: 2
             m_Bits: 4294967291
-    - sceneGUID: 00000000000000000000000000000000
+    - sceneGUID: 01d353bad44b29f45a10d549197f371b
+      settings:
+        m_Version: 1
+        dilationSettings:
+          enableDilation: 1
+          dilationDistance: 1
+          dilationValidityThreshold: 0.25
+          dilationIterations: 1
+          squaredDistWeighting: 1
+        virtualOffsetSettings:
+          useVirtualOffset: 1
+          outOfGeoOffset: 0.01
+          searchMultiplier: 0.2
+          rayOriginBias: -0.001
+          maxHitsPerRay: 10
+          collisionMask:
+            serializedVersion: 2
+            m_Bits: 4294967291
+    - sceneGUID: 11341a64301d315c3a456a45551640ad
       settings:
         m_Version: 1
         dilationSettings:
@@ -153,6 +172,7 @@ MonoBehaviour:
       sceneGUIDs:
       - 8124e5870f4fd4c779e7a5f994e84ad1
       - 00000000000000000000000000000000
+      - 11341a64301d315c3a456a45551640ad
       settings:
         m_Version: 1
         dilationSettings:
@@ -174,3 +194,6 @@ MonoBehaviour:
       lightingScenarios:
       - Default
     m_LightingScenario: Default
+  m_Version: 5
+  m_ShaderVariantLogLevel: 0
+  m_ExportShaderVariants: 1

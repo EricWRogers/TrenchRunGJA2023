@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
     }
 
     public void UpdateMoveInput(Vector2 _input)
@@ -29,6 +30,18 @@ public class PlayerController : MonoBehaviour
 
     public void FixedUpdate()
     {
-        rb.AddForce(new Vector3(0,0,speed * Time.deltaTime));
+        Movement();
+    }
+
+
+    public void Movement()
+    {
+        Vector3 moveVector = new Vector3();
+
+        moveVector.x = movInput.x * speed;
+        moveVector.y = movInput.y * speed;
+        moveVector.z = speed;
+        //rb.AddForce(new Vector3(0,0,speed * Time.deltaTime));
+        rb.velocity = moveVector * Time.deltaTime;
     }
 }

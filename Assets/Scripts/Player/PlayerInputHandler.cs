@@ -17,8 +17,18 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Awake()
     {
+        controls = new MainPlayer();
+
         pCon = GetComponent<PlayerController>();
         playerInput = GetComponent<PlayerInput>();
+
+
+        playerInput.onActionTriggered += Input_onActionTriggered;
+    }
+
+    private void OnDestroy()
+    {
+        playerInput.onActionTriggered -= Input_onActionTriggered;
     }
 
 
@@ -27,6 +37,10 @@ public class PlayerInputHandler : MonoBehaviour
         if(obj.action.name == controls.Player.Movement.name)
         {
             pCon.UpdateMoveInput(obj.ReadValue<Vector2>());
+        }
+        if(obj.action.name == controls.Player.Look.name)
+        {
+            pCon.UpdateLookInput(obj.ReadValue<Vector2>());
         }
     }
 

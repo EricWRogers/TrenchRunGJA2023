@@ -68,7 +68,7 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Keyboard"",
+                    ""name"": ""WSAD"",
                     ""id"": ""662f076f-9791-4901-b399-bc6238fecec3"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
@@ -125,7 +125,7 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""55ac9459-d50c-4ed8-aefe-13c986e9d849"",
-                    ""path"": """",
+                    ""path"": ""<Mouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

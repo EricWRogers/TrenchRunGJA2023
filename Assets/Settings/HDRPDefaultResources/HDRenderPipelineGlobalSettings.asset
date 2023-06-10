@@ -101,12 +101,12 @@ MonoBehaviour:
     serializedHasVolumes:
     - sceneGUID: 8124e5870f4fd4c779e7a5f994e84ad1
       hasProbeVolumes: 0
-    - sceneGUID: 01d353bad44b29f45a10d549197f371b
+    - sceneGUID: 00000000000000000000000000000000
       hasProbeVolumes: 0
     serializedProfiles:
     - sceneGUID: 8124e5870f4fd4c779e7a5f994e84ad1
       profile: {fileID: 11400000, guid: e93986578188ab8b6af3d1e76242d761, type: 2}
-    - sceneGUID: 01d353bad44b29f45a10d549197f371b
+    - sceneGUID: 00000000000000000000000000000000
       profile: {fileID: 11400000, guid: e93986578188ab8b6af3d1e76242d761, type: 2}
     serializedBakeSettings:
     - sceneGUID: 8124e5870f4fd4c779e7a5f994e84ad1
@@ -127,7 +127,7 @@ MonoBehaviour:
           collisionMask:
             serializedVersion: 2
             m_Bits: 4294967291
-    - sceneGUID: 01d353bad44b29f45a10d549197f371b
+    - sceneGUID: 00000000000000000000000000000000
       settings:
         m_Version: 1
         dilationSettings:
@@ -149,7 +149,7 @@ MonoBehaviour:
     - name: Default
       sceneGUIDs:
       - 8124e5870f4fd4c779e7a5f994e84ad1
-      - 01d353bad44b29f45a10d549197f371b
+      - 00000000000000000000000000000000
       settings:
         m_Version: 1
         dilationSettings:

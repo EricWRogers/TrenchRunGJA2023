@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2988093656113736536}
   - component: {fileID: 3766725975291719878}
+  - component: {fileID: 2733583623211238076}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -57,16 +58,17 @@ MonoBehaviour:
   m_JoinAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: b3dc6215-8e43-40f0-8928-38aeaceb76ee
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 0}
+  m_PlayerPrefab: {fileID: 2064973835404889098, guid: 1d6d25d4a9f435f42963811f3908e672,
+    type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
@@ -76,37 +78,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!1 &5078579699480385371
-GameObject:
+--- !u!114 &2733583623211238076
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1135825884073423083}
-  m_Layer: 0
-  m_Name: PlayerInputManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1135825884073423083
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5078579699480385371}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7100146730355499953}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 5011336295517603052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c44f4a95fca3240807e981cf3e4178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6603825593570766814
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +118,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1135825884073423083}
   - {fileID: 2988093656113736536}
   m_Father: {fileID: 0}
   m_RootOrder: 6

@@ -19,7 +19,7 @@ public class PlayerInputHandler : MonoBehaviour
     private PlayerController pCon;
     private CombatHandler combatHandler;
     private float currentDoubleTapTime;
-    private bool tappedOnce;
+    private bool tappedOnce, releasedOnce;
 
     private void Awake()
     {
@@ -38,6 +38,7 @@ public class PlayerInputHandler : MonoBehaviour
             if(currentDoubleTapTime >= doubleTapCooldown)
             {
                 tappedOnce = false;
+                releasedOnce = false;
                 currentDoubleTapTime = 0;
             }
         }
@@ -60,9 +61,14 @@ public class PlayerInputHandler : MonoBehaviour
         if(obj.action.name == controls.Player.Movement.name)
         {
             pCon.UpdateMoveInput(obj.ReadValue<Vector2>());
+
+            if(obj.ReadValue<Vector2>().x >= 0.85f && !tappedOnce || obj.ReadValue<Vector2>().x <= -0.85f && !tappedOnce)
+            {
+                tappedOnce = true;
+            }
             if (obj.performed)
             {
-                if (tappedOnce && obj.ReadValue<Vector2>().x != 0)
+                if (tappedOnce && releasedOnce)
                 {
                     //DO A BARREL ROLL!
                     if(obj.ReadValue<Vector2>().x > 0)
@@ -73,11 +79,14 @@ public class PlayerInputHandler : MonoBehaviour
                     {
                         pCon.DoABarrelRoll(true);
                     }
+
+                    tappedOnce = false;
+                    releasedOnce = false;
                 }
-                else
-                {
-                    tappedOnce = true;
-                }
+            }
+            if(obj.canceled && tappedOnce)
+            {
+                releasedOnce = true;
             }
         }
         if(obj.action.name == controls.Player.Look.name)

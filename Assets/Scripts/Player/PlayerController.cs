@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public Animator anim;
+    public GameObject Graphic;
     public float mouseGravity;
     public float turnFactor = 5f;
     public float speed = 3f;
@@ -72,6 +73,11 @@ public class PlayerController : MonoBehaviour
         return lookInput;
     }
 
+    public float GetCurrentSpeed()
+    {
+        return currentSpeed;
+    }
+
     public void ToggleBoost(bool _boost)
     {
         boosting = _boost;
@@ -123,8 +129,9 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(new Vector3(yRotationSpeed * smoothedRotation.y, rotationSpeed * smoothedRotation.x, 0) * Time.deltaTime, Space.Self);
         
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, (-movInput.x + -smoothedRotation.x) * maxBankAngle), bankRotationSmoothness * Time.deltaTime);
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z), rotationReturnSpeed * Time.deltaTime);
+        //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, (-movInput.x + -smoothedRotation.x) * maxBankAngle), bankRotationSmoothness * Time.deltaTime);
+        Graphic.transform.rotation = Quaternion.Lerp(Graphic.transform.rotation, Quaternion.Euler(Graphic.transform.rotation.eulerAngles.x, Graphic.transform.rotation.eulerAngles.y, (-movInput.x + -smoothedRotation.x) * maxBankAngle), bankRotationSmoothness * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0), rotationReturnSpeed * Time.deltaTime);
 
         previousMousePosition = lookInput;
 
@@ -141,10 +148,7 @@ public class PlayerController : MonoBehaviour
 
         if(movInput.y < 0)
         {
-            if(anim.GetBool("Breaking") != true)
-            {
-                anim.SetBool("Breaking", true);
-            }
+            anim.SetBool("Breaking", true);
         }
         else
         {

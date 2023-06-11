@@ -17,4 +17,4 @@ MonoBehaviour:
   - projectileObjCode: laser_proj
     damage: 7
     range: 100
-    weaponSpeed: 30
+    weaponSpeed: 200

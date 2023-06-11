@@ -8,6 +8,8 @@ public class CombatHandler : MonoBehaviour
     public LayerMask shootingMask;
     public float fallbackRange = 50f;
 
+    public float lookScaling = .75f;
+    public float reticalSmoothness = .5f;
     public float reticalDistance = 50f;
     public Vector2 reticalBounds;
 
@@ -24,6 +26,7 @@ public class CombatHandler : MonoBehaviour
 
     private Vector3 reticalPos;
     private Vector2 reticalLocal;
+    private Vector2 lookSmoothed;
 
 
     private void Start()
@@ -99,7 +102,7 @@ public class CombatHandler : MonoBehaviour
     public void FireLaser()
     {
         GameObject laserProj = SimpleObjectPool.Instance.SpawnFromPool(laserElement.GetCurrentLevelProfile().projectileObjCode, laserProjectileSpawn.transform.position, Quaternion.identity);
-
+        laserProj.GetComponent<Bullet>().speed = laserElement.GetCurrentLevelProfile().weaponSpeed + GetComponent<PlayerController>().GetCurrentSpeed();
         laserProj.transform.forward =  GetTarget() - laserProj.transform.position;
     }
 
@@ -131,7 +134,7 @@ public class CombatHandler : MonoBehaviour
         }
         else
         {
-            target = GameManager.Instance.vCam.transform.position + directionToRetical.normalized * fallbackRange;
+            target = GameManager.Instance.vCam.transform.position + directionToRetical.normalized * reticalDistance;
         }
 
 
@@ -146,8 +149,12 @@ public class CombatHandler : MonoBehaviour
 
         look = new Vector2(-look.x, look.y);
 
+        look *= lookScaling;
+
+        lookSmoothed = Vector2.Lerp(lookSmoothed, look, reticalSmoothness * Time.deltaTime);
+
         reticalPos = GameManager.Instance.vCam.transform.position + (GameManager.Instance.vCam.transform.forward.normalized * reticalDistance);
-        reticalLocal += look;
+        reticalLocal += lookSmoothed;
         reticalLocal = new Vector2(Mathf.Clamp(reticalLocal.x, -reticalBounds.x, reticalBounds.x), Mathf.Clamp(reticalLocal.y, -reticalBounds.y, reticalBounds.y));
         
         retical.transform.LookAt(GameManager.Instance.vCam.transform.position);

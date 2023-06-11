@@ -6,6 +6,17 @@ public class TunnelManager : MonoBehaviour
 {
     public GameObject lastTunnel;
     public float distanceToEnd = 200.0f;
+    public float courseLength = 1500.0f;
+
+    public List<string> tunnelCodes;
+    public string lastTunnelPlaced;
+    public string finalCode;
+    public bool endZone;
+    public Vector3 initPlayerPos;
+
+    void Start() {
+        initPlayerPos = GameManager.Instance.GetPlayer().transform.position;
+    }
     void FixedUpdate()
     {
         Vector3 tempPlayer = GameManager.Instance.GetPlayer().transform.position;
@@ -17,11 +28,29 @@ public class TunnelManager : MonoBehaviour
         exit.y = 0.0f;
 
         if (Vector3.Distance(tempPlayer, exit) < distanceToEnd) {
+            if ((Vector3.Distance(tempPlayer, initPlayerPos) > courseLength) && endZone == false) {
+                endZone = true;
+                Debug.Log("You won!");
+            }
+
+            string code = lastTunnelPlaced;
+
+            if (!endZone) {
+                while(code == lastTunnelPlaced)
+                {
+                    code = tunnelCodes[Random.Range(0, tunnelCodes.Count)];
+                }
+            } else {
+                code = finalCode;
+            }
+
+            lastTunnelPlaced = code;
+
             lastTunnel = SuperPupSystems.Helper.SimpleObjectPool.Instance.SpawnFromPool(
-                "tunnel",
+                code,
                 lastTunnel.GetComponent<Tunnel>().exit.transform.position,
                 Quaternion.identity
-            );
+            );      
         }
     }
 }

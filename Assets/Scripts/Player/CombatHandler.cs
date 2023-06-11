@@ -123,8 +123,14 @@ public class CombatHandler : MonoBehaviour
 
     public void Die()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        if (!GetComponent<PlayerController>().canMove)
+        {
+            return;
+        }
+
+
+
+
         InGameUIManager.Instance.GameOver();
         GameObject effect = GameObject.Instantiate(deathEffect, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);

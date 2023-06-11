@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public float rotateRange;
     public float rollTime = .5f;
 
+    public bool canMove = true;
+
 
 
     private Rigidbody rb;
@@ -136,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
     public void Movement()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
 
         Vector2 screenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         Vector2 mousePos = lookInput;

@@ -93,6 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4111434880651126322}
+  - component: {fileID: 125238241458911435}
   m_Layer: 0
   m_Name: TunnelTile 01
   m_TagString: Untagged
@@ -115,8 +116,22 @@ Transform:
   - {fileID: 2270170654876926058}
   - {fileID: 3873454627756323658}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &125238241458911435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7962841625652721231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23125f96f2b3a1355909eba427f8b819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exit: {fileID: 7212768471798996246}
+  portExit: {fileID: 0}
 --- !u!1001 &14985656928085818
 PrefabInstance:
   m_ObjectHideFlags: 0

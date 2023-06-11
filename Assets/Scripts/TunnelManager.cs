@@ -72,6 +72,7 @@ public class TunnelManager : MonoBehaviour
 
             if (lastTunnel.GetComponent<Tunnel>().portExit != null) {
                 lastTunnel.GetComponent<Tunnel>().portExit.SetActive(true);
+                lastTunnel.GetComponent<Tunnel>().SetObjectsActive();
             }     
         }
     }

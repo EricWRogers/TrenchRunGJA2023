@@ -6,7 +6,7 @@ public class Tunnel : MonoBehaviour
 {
     public GameObject exit;
     public GameObject portExit = null;
-    public List<GameObject> objectsToSetActive = {};
+    public List<GameObject> objectsToSetActive = new List<GameObject>();
 
     public void SetObjectsActive()
     {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponTag: rocket
   weaponLevels:
-  - projectileObjCode: MIssle
+  - projectileObjCode: Missile
     damage: 7
     range: 100
     weaponSpeed: 200

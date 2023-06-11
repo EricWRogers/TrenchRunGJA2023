@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     public void InitializePlayer()
     {
+        Debug.Log("Initializing");
         if(GameManager.Instance != null)
         {
             GameManager.Instance.RegisterPlayer(this);
@@ -39,8 +40,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.onGMReady += InitializePlayer;
-
         rb = GetComponent<Rigidbody>();
     }
 
@@ -51,7 +50,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.onGMReady -= InitializePlayer;
     }
 
     public void UpdateMoveInput(Vector2 _input)

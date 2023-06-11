@@ -25,6 +25,7 @@ public class DialogueTrigger : MonoBehaviour
 [System.Serializable]
 public class Message
 {
+    [TextArea(3,10)]
     public string message;
     public int actorId;
     

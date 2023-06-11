@@ -53,6 +53,33 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireLaser"",
+                    ""type"": ""Button"",
+                    ""id"": ""31c49bf1-b464-4d57-8c11-3ec7e2996f73"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireRocket"",
+                    ""type"": ""Button"",
+                    ""id"": ""aea60dfc-921b-4f38-bb54-0855955a8f0c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Boost"",
+                    ""type"": ""Button"",
+                    ""id"": ""03c0261f-f728-4a9d-bdd1-fe4eb2e856f9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -143,6 +170,72 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""077d4b91-4515-4cd2-87ff-855b08751c1c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""FireLaser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e19f4ba-b22a-405b-8eeb-d475d371c78b"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""FireLaser"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f5012be-50e8-4c60-99b1-8f961fc58834"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""FireRocket"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09180ba2-4ce8-4536-8292-acfc4a8a1377"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""FireRocket"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c73bd5f-7be0-40ff-a3d6-1481f00e34fe"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Boost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2a8c096-9fcc-4994-8d6f-ed57afce0bb1"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Boost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -154,6 +247,9 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
+        m_Player_FireLaser = m_Player.FindAction("FireLaser", throwIfNotFound: true);
+        m_Player_FireRocket = m_Player.FindAction("FireRocket", throwIfNotFound: true);
+        m_Player_Boost = m_Player.FindAction("Boost", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -218,6 +314,9 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Pause;
+    private readonly InputAction m_Player_FireLaser;
+    private readonly InputAction m_Player_FireRocket;
+    private readonly InputAction m_Player_Boost;
     public struct PlayerActions
     {
         private @MainPlayer m_Wrapper;
@@ -225,6 +324,9 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
+        public InputAction @FireLaser => m_Wrapper.m_Player_FireLaser;
+        public InputAction @FireRocket => m_Wrapper.m_Player_FireRocket;
+        public InputAction @Boost => m_Wrapper.m_Player_Boost;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -243,6 +345,15 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @FireLaser.started += instance.OnFireLaser;
+            @FireLaser.performed += instance.OnFireLaser;
+            @FireLaser.canceled += instance.OnFireLaser;
+            @FireRocket.started += instance.OnFireRocket;
+            @FireRocket.performed += instance.OnFireRocket;
+            @FireRocket.canceled += instance.OnFireRocket;
+            @Boost.started += instance.OnBoost;
+            @Boost.performed += instance.OnBoost;
+            @Boost.canceled += instance.OnBoost;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -256,6 +367,15 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @FireLaser.started -= instance.OnFireLaser;
+            @FireLaser.performed -= instance.OnFireLaser;
+            @FireLaser.canceled -= instance.OnFireLaser;
+            @FireRocket.started -= instance.OnFireRocket;
+            @FireRocket.performed -= instance.OnFireRocket;
+            @FireRocket.canceled -= instance.OnFireRocket;
+            @Boost.started -= instance.OnBoost;
+            @Boost.performed -= instance.OnBoost;
+            @Boost.canceled -= instance.OnBoost;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -278,5 +398,8 @@ public partial class @MainPlayer: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnFireLaser(InputAction.CallbackContext context);
+        void OnFireRocket(InputAction.CallbackContext context);
+        void OnBoost(InputAction.CallbackContext context);
     }
 }

@@ -8,6 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD:Assets/Prefabs/DialogueBoxTrigger.prefab
   - component: {fileID: 3763753728677596812}
   - component: {fileID: 4111751025188501203}
   - component: {fileID: 5584885430284142203}
@@ -15,6 +16,16 @@ GameObject:
   - component: {fileID: 1324559531262661895}
   m_Layer: 0
   m_Name: DialogueBoxTrigger
+=======
+  - component: {fileID: 1014129772118466535}
+  - component: {fileID: 2822202293767331141}
+  - component: {fileID: 3496648274037992080}
+  - component: {fileID: 6543975460375593451}
+  - component: {fileID: 7336740279581523240}
+  - component: {fileID: 6206835671739734879}
+  m_Layer: 16
+  m_Name: Bullet
+>>>>>>> main:Assets/Prefabs/Bullet.prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +44,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD:Assets/Prefabs/DialogueBoxTrigger.prefab
   m_RootOrder: 3
+=======
+  m_RootOrder: 0
+>>>>>>> main:Assets/Prefabs/Bullet.prefab
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4111751025188501203
 MeshFilter:
@@ -63,7 +78,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 0bb0fd632c831464aae6493a1d151d04, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,7 +121,31 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Prefabs/DialogueBoxTrigger.prefab
 --- !u!114 &1324559531262661895
+=======
+--- !u!114 &7336740279581523240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6646372730498481773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34dd33693f2fd11d68954afdba6a9ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  speed: 300
+  cullTime: 10
+  mask:
+    serializedVersion: 2
+    m_Bits: 124151
+  tags: []
+  impactEffectCode: Impact
+--- !u!114 &6206835671739734879
+>>>>>>> main:Assets/Prefabs/Bullet.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

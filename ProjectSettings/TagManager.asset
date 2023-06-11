@@ -14,15 +14,13 @@ TagManager:
   - UI
   - 
   - 
+  - Destructable
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Retical
+  - Menus
+  - Projectile
   - 
   - 
   - 

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6148306506389848610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4758417899135643364}
+  - component: {fileID: 7364910181419159855}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4758417899135643364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6148306506389848610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.0953085, y: 2.3261619, z: 2.1407328}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7364910181419159855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6148306506389848610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7c395f2c5eea24f86a4c0b697abc43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - code: trash_code
+    prefab: {fileID: 7504239587356616926, guid: 4ceb9292d2c12c6b2bd3ba57e7dee6a6,
+      type: 3}
+    size: 5
+  - code: enemy_bullet
+    prefab: {fileID: 6646372730498481773, guid: c56a9bed3f4b0e3ab817763cd0387718,
+      type: 3}
+    size: 300
+  - code: missile_explosion
+    prefab: {fileID: 8638258263721992372, guid: d7727857348fa16489e9d037890ad5e7,
+      type: 3}
+    size: 30
+  - code: laser_proj
+    prefab: {fileID: 6646372730498481773, guid: a65e5e944fe443042bc2e6ed602c300f,
+      type: 3}
+    size: 30
+  - code: Impact
+    prefab: {fileID: 5235559610715023071, guid: 18da1b3520432a74d88a919a8b52d207,
+      type: 3}
+    size: 300

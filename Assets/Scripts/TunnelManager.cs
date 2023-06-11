@@ -55,11 +55,19 @@ public class TunnelManager : MonoBehaviour
 
             lastTunnelPlaced = code;
 
+            if (lastTunnel.GetComponent<Tunnel>().portExit != null) {
+                lastTunnel.GetComponent<Tunnel>().portExit.SetActive(false);
+            }
+
             lastTunnel = SuperPupSystems.Helper.SimpleObjectPool.Instance.SpawnFromPool(
                 code,
                 lastTunnel.GetComponent<Tunnel>().exit.transform.position,
                 Quaternion.identity
-            );      
+            ); 
+
+            if (lastTunnel.GetComponent<Tunnel>().portExit != null) {
+                lastTunnel.GetComponent<Tunnel>().portExit.SetActive(true);
+            }     
         }
     }
 }

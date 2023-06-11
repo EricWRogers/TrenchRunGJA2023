@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     public float cullTime = 10f;
     public LayerMask mask;
     public List<string> tags;
+    public string impactEffectCode;
 
     private bool launched = false;
     private bool hit = false;
@@ -34,7 +35,7 @@ public class Bullet : MonoBehaviour
 
         if (Physics.Linecast((Vector3)positionLastFrame, transform.position, out info, mask))
         {
-            if (tags.Contains(info.transform.tag))
+            if (tags.Contains(info.transform.tag) || info.transform.GetComponentInParent<Health>() != null)
             {
                 info.transform.GetComponentInParent<Health>().Damage(Mathf.RoundToInt(damage));
             }
@@ -43,6 +44,10 @@ public class Bullet : MonoBehaviour
                 info.transform.gameObject.GetComponentInParent<CombatHandler>().DowngradeWeapon();
             }
 
+            if(impactEffectCode != "")
+            {
+                GameObject laserProj = SimpleObjectPool.Instance.SpawnFromPool(impactEffectCode, this.transform.position, Quaternion.identity);
+            }
             DestroyBullet();
         }
 

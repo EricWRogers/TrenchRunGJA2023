@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 27b000ac7c8389f41a930feca41fa109, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,13 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dd33693f2fd11d68954afdba6a9ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 100
   speed: 150
   cullTime: 10
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 38135
   tags: []
+  impactEffectCode: Impact
 --- !u!114 &6206835671739734879
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -97,6 +97,10 @@ public class PlayerInputHandler : MonoBehaviour
         {
             FireLaser(obj);
         }
+        if(obj.action.name == controls.Player.FireRocket.name)
+        {
+            FireRocket(obj);
+        }
         if(obj.action.name == controls.Player.Boost.name)
         {
             Boost(obj);
@@ -115,7 +119,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (obj.started)
         {
-            combatHandler.FireLaser();
+            combatHandler.FireRocket();
         }
     }
 

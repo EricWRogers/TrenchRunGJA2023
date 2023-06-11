@@ -57,7 +57,7 @@ MonoBehaviour:
   - Destructable
   mask:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 102647
   radius: 60
 --- !u!114 &981006772400377342
 MonoBehaviour:

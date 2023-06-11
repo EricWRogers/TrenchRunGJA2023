@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public float bankRotationSmoothness = 1f;
     public float rotationReturnSpeed = 1f;
     public float rotateRange;
+    public float rollTime = .5f;
 
 
 
@@ -32,6 +33,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 smoothedRotation = new Vector2();
     private float currentSpeed;
     private bool boosting;
+
+    public bool rolling;
+    private float currentRollTime = 0;
 
     float intX, intY;
 
@@ -57,6 +61,20 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         previousPosition = this.transform.position;
+    }
+
+    private void Update()
+    {
+        if (rolling)
+        {
+            currentRollTime += Time.deltaTime;
+
+            if(currentRollTime >= rollTime)
+            {
+                rolling = false;
+                currentRollTime = 0;
+            }
+        }
     }
 
     private void OnDestroy()
@@ -91,6 +109,8 @@ public class PlayerController : MonoBehaviour
 
     public void DoABarrelRoll(bool _left)
     {
+        rolling = true;
+
         if (_left)
         {
             anim.SetTrigger("RollLeft");

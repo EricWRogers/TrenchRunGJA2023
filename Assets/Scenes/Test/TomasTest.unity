@@ -920,33 +920,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &1588748978 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7875089184263465703, guid: bb9398da6a1e79f4aaca1b2fb400914f,
-    type: 3}
-  m_PrefabInstance: {fileID: 6670648933117753472}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1588748981
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588748978}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.4055998, y: 0.5075822, z: 2.3981194}
-  m_Center: {x: 0.00025761127, y: 0.01994443, z: 0.18707657}
 --- !u!1001 &3058068970841033026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -958,47 +931,42 @@ PrefabInstance:
     - target: {fileID: 4527591017004022035, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.999887
+      value: 0.99988693
       objectReference: {fileID: 0}
     - target: {fileID: 4527591017004022035, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.01503254
+      value: -0.015032539
       objectReference: {fileID: 0}
     - target: {fileID: 4527591017004022035, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00035925914
+      value: -0.00047935636
       objectReference: {fileID: 0}
     - target: {fileID: 4527591017004022035, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000054011875
+      value: -0.000007206758
       objectReference: {fileID: 0}
     - target: {fileID: 4527814350235442184, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.999887
+      value: 0.99988693
       objectReference: {fileID: 0}
     - target: {fileID: 4527814350235442184, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.01503254
+      value: -0.015032539
       objectReference: {fileID: 0}
     - target: {fileID: 4527814350235442184, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00035925914
+      value: -0.00047935636
       objectReference: {fileID: 0}
     - target: {fileID: 4527814350235442184, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000054011875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5630248936283546190, guid: f880bf816331541408f91184657b49bb,
-        type: 3}
-      propertyPath: m_ZDamping
-      value: 0.13
+      value: -0.000007206758
       objectReference: {fileID: 0}
     - target: {fileID: 5907467492509234807, guid: f880bf816331541408f91184657b49bb,
         type: 3}
@@ -1014,6 +982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameEssentials
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603825593570766814, guid: f880bf816331541408f91184657b49bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7100146730355499953, guid: f880bf816331541408f91184657b49bb,
         type: 3}
@@ -1146,9 +1119,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7875089184263465703, guid: bb9398da6a1e79f4aaca1b2fb400914f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1588748981}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9398da6a1e79f4aaca1b2fb400914f, type: 3}

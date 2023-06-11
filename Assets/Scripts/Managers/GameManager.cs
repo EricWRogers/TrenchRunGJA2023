@@ -8,7 +8,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     public CinemachineVirtualCamera vCam;
 
-    private PlayerController player;
+    public PlayerController player;
 
     new void Awake()
     {

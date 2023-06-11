@@ -49,6 +49,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        GetComponent<CombatHandler>().Die();
+    }
+
     private void Start()
     {
         previousPosition = this.transform.position;

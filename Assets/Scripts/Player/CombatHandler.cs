@@ -5,9 +5,11 @@ using SuperPupSystems.Helper;
 
 public class CombatHandler : MonoBehaviour
 {
+    public GameObject deathEffect;
+
     public LayerMask shootingMask;
     public float fallbackRange = 50f;
-
+    public int startingUpgrades = 0;
     public float lookScaling = .75f;
     public float reticalSmoothness = .5f;
     public float reticalDistance = 50f;
@@ -27,7 +29,7 @@ public class CombatHandler : MonoBehaviour
     private Vector3 reticalPos;
     private Vector2 reticalLocal;
     private Vector2 lookSmoothed;
-
+    private string recentUpgrade = "laser";
 
     private void Start()
     {
@@ -35,6 +37,7 @@ public class CombatHandler : MonoBehaviour
         subReticals = InGameUIManager.Instance.subTargetingRetical;
         //retical.transform.parent = GameManager.Instance.vCam.transform;
         InitializeWeapons();
+
     }
 
     private void FixedUpdate()
@@ -47,6 +50,8 @@ public class CombatHandler : MonoBehaviour
     {
         laserElement = new WeaponElement(laserProfile.weaponLevels);
         rocketElement = new WeaponElement(rocketProfile.weaponLevels);
+
+        laserElement.currentLevelIndex = startingUpgrades;
     }
 
     public void UpgradeWeapon(string _weaponTag)
@@ -62,6 +67,8 @@ public class CombatHandler : MonoBehaviour
                     laserElement.currentLevelIndex = laserElement.loadedLevelProfiles.Count;
                 }
 
+                recentUpgrade = "laser";
+
                 break;
             case "rocket":
 
@@ -72,12 +79,20 @@ public class CombatHandler : MonoBehaviour
                     rocketElement.currentLevelIndex = rocketElement.loadedLevelProfiles.Count;
                 }
 
+                recentUpgrade = "rocket";
+
                 break;
         }
     }
 
-    public void DamageWeapon(string _weaponTag)
+    public void DowngradeWeapon()
     {
+        Debug.Log("Downgrading");
+
+        GetComponent<PlayerController>().anim.SetTrigger("Hit");
+
+        string _weaponTag = recentUpgrade;
+
         switch (_weaponTag)
         {
             case "laser":
@@ -86,6 +101,7 @@ public class CombatHandler : MonoBehaviour
                 if(laserElement.currentLevelIndex < 0)
                 {
                     laserElement.currentLevelIndex = 0;
+                    Die();
                 }
                 break;
             case "rocket":
@@ -94,9 +110,19 @@ public class CombatHandler : MonoBehaviour
                 if(rocketElement.currentLevelIndex < 0)
                 {
                     rocketElement.currentLevelIndex = 0;
+                    Die();
                 }
                 break;
         }
+    }
+
+    public void Die()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        InGameUIManager.Instance.GameOver();
+        GameObject effect = GameObject.Instantiate(deathEffect, this.transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 
     public void FireLaser()

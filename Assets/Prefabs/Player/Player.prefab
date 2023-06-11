@@ -291,7 +291,6 @@ GameObject:
   - component: {fileID: 4120404442058112988}
   - component: {fileID: 6647552182527429696}
   - component: {fileID: 7884804161375655599}
-  - component: {fileID: 6322578252630918579}
   m_Layer: 13
   m_Name: Player
   m_TagString: Untagged
@@ -314,7 +313,7 @@ Transform:
   - {fileID: 862815261795180321}
   - {fileID: 4287406110489180005}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &31487006480867300
 Rigidbody:
@@ -396,10 +395,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7537e82120bed44f806e565c530e95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffect: {fileID: 8638258263721992372, guid: d7727857348fa16489e9d037890ad5e7,
+    type: 3}
   shootingMask:
     serializedVersion: 2
     m_Bits: 24576
   fallbackRange: 50
+  startingUpgrades: 3
   lookScaling: 0.75
   reticalSmoothness: 2
   reticalDistance: 50
@@ -408,37 +410,6 @@ MonoBehaviour:
   rocketProfile: {fileID: 11400000, guid: 90f00e0084ef41a43965aabeeb6d12b3, type: 2}
   laserProjectileSpawn: {fileID: 4287406110489180005}
   rocketProjectileSpawn: {fileID: 0}
---- !u!114 &6322578252630918579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8131846602904189946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad54517dc19258185960ef6d2f3a1b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeOut:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4120404442058112988}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: InitializePlayer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  AutoStart: 1
-  AutoRestart: 0
-  CountDownTime: 0.01
-  timeScale: 1
 --- !u!1 &8210493042558975133
 GameObject:
   m_ObjectHideFlags: 0

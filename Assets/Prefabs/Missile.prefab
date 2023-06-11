@@ -50,15 +50,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   target: {fileID: 0}
-  lastTargetPosition: {x: -34.9, y: 4.32, z: 185.2}
+  lastTargetPosition: {x: -34.9, y: 8.05, z: 185.2}
   speed: 20
   rotationSpeed: 5
   tags:
   - Destructable
   mask:
     serializedVersion: 2
-    m_Bits: 5120
-  radius: 159.7
+    m_Bits: 5121
+  radius: 459.1
 --- !u!114 &981006772400377342
 MonoBehaviour:
   m_ObjectHideFlags: 0

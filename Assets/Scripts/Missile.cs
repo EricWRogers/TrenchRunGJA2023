@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SuperPupSystems.Helper;
+using UnityEngine.VFX;
 
 public class Missile : MonoBehaviour
 {
@@ -22,9 +23,10 @@ public class Missile : MonoBehaviour
             lastTargetPosition = target.transform.position;
         
         // rotate
-        Vector3 direction = lastTargetPosition - transform.position;
-        Quaternion toRotation = Quaternion.FromToRotation(transform.forward, direction);
-        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        //Vector3 direction = lastTargetPosition - transform.position;
+        //Quaternion toRotation = Quaternion.FromToRotation(transform.forward, direction);
+        //transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        transform.LookAt(lastTargetPosition);
         
         // move
         transform.position += transform.forward * speed * Time.deltaTime;
@@ -32,6 +34,7 @@ public class Missile : MonoBehaviour
         // check for hit
         if (Physics.Linecast((Vector3)lastPosition, transform.position, out info, mask))
         {
+            Debug.Log("HIT");
             if (tags.Contains(info.transform.tag))
             {
                 info.transform.GetComponentInParent<Health>().Damage(Mathf.RoundToInt(damage));
@@ -46,15 +49,22 @@ public class Missile : MonoBehaviour
     public void Fire(Vector3 _target)
     {
         lastPosition = transform.position;
+        GetComponent<Timer>().StartTimer();
 
         // Find target
 
     }
 
-    private void DestroyMissile()
+    public void DestroyMissile()
     {
         gameObject.SetActive(false);
         // spawn explosion
+        GameObject explosion = SuperPupSystems.Helper.SimpleObjectPool.Instance.SpawnFromPool(
+            "missile_explosion",
+            transform.position,
+            Quaternion.identity
+        );
 
+        explosion.GetComponent<VisualEffect>().Play();
     }
 }

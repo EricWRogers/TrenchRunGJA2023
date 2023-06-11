@@ -650,6 +650,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9398da6a1e79f4aaca1b2fb400914f, type: 3}
+--- !u!1 &698599656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2063567056704894733, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6020837108673255379}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &698599659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
+    type: 3}
+  m_PrefabInstance: {fileID: 6020837108673255379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698599656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ee30496b8c29eeea5066b6b7497de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &698599660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698599656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad54517dc19258185960ef6d2f3a1b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 698599659}
+        m_TargetAssemblyTypeName: Missile, Assembly-CSharp
+        m_MethodName: DestroyMissile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AutoStart: 1
+  AutoRestart: 0
+  CountDownTime: 2
+  timeScale: 1
 --- !u!1 &828255046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1970,7 +2019,7 @@ PrefabInstance:
     - target: {fileID: 3642932430343867800, guid: 8576596cbd1f63ea189c60a4f371296e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.13
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 3642932430343867800, guid: 8576596cbd1f63ea189c60a4f371296e,
         type: 3}
@@ -1980,7 +2029,7 @@ PrefabInstance:
     - target: {fileID: 3642932430343867800, guid: 8576596cbd1f63ea189c60a4f371296e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 8.73
       objectReference: {fileID: 0}
     - target: {fileID: 3642932430343867800, guid: 8576596cbd1f63ea189c60a4f371296e,
         type: 3}
@@ -2461,6 +2510,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 7336740279581523240, guid: c56a9bed3f4b0e3ab817763cd0387718,
+        type: 3}
+      propertyPath: mask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2744,10 +2798,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Missile
       objectReference: {fileID: 0}
+    - target: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 367493148}
+    - target: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
+        type: 3}
+      propertyPath: mask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2063567056704894733, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 698599660}
   m_SourcePrefab: {fileID: 100100000, guid: b30e8c85a7ab4daf0be2c20851ec8bcd, type: 3}
 --- !u!4 &6197446211036424051
 Transform:

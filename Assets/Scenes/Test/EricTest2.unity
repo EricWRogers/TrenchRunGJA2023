@@ -5884,14 +5884,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Missile
       objectReference: {fileID: 0}
+    - target: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
+        type: 3}
+      propertyPath: mask.m_Bits
+      value: 5121
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2063567056704894733, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2042182718}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b30e8c85a7ab4daf0be2c20851ec8bcd, type: 3}
 --- !u!1 &231426008
 GameObject:
@@ -60009,55 +60010,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e14f3a658dd66f1f86eae76f22d1c1a, type: 3}
---- !u!1 &2042182714 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2063567056704894733, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
-    type: 3}
-  m_PrefabInstance: {fileID: 231258519}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2042182716 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
-    type: 3}
-  m_PrefabInstance: {fileID: 231258519}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042182714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6ee30496b8c29eeea5066b6b7497de1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2042182718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042182714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad54517dc19258185960ef6d2f3a1b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeOut:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2042182716}
-        m_TargetAssemblyTypeName: Missile, Assembly-CSharp
-        m_MethodName: ScanNewTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  AutoStart: 1
-  AutoRestart: 1
-  CountDownTime: 0.5
-  timeScale: 1
 --- !u!1 &2044961906
 GameObject:
   m_ObjectHideFlags: 0
@@ -63577,23 +63529,33 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 4527591017004022035, guid: f880bf816331541408f91184657b49bb,
         type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -111.119995
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527591017004022035, guid: f880bf816331541408f91184657b49bb,
+        type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9998865
       objectReference: {fileID: 0}
     - target: {fileID: 4527591017004022035, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.015032534
+      value: -0.015032541
       objectReference: {fileID: 0}
     - target: {fileID: 4527591017004022035, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.001033789
+      value: -0.0010304062
       objectReference: {fileID: 0}
     - target: {fileID: 4527591017004022035, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00001554223
+      value: -0.000015491383
+      objectReference: {fileID: 0}
+    - target: {fileID: 4527814350235442184, guid: f880bf816331541408f91184657b49bb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -111.119995
       objectReference: {fileID: 0}
     - target: {fileID: 4527814350235442184, guid: f880bf816331541408f91184657b49bb,
         type: 3}
@@ -63603,17 +63565,17 @@ PrefabInstance:
     - target: {fileID: 4527814350235442184, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.015032534
+      value: -0.015032541
       objectReference: {fileID: 0}
     - target: {fileID: 4527814350235442184, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.001033789
+      value: -0.0010304062
       objectReference: {fileID: 0}
     - target: {fileID: 4527814350235442184, guid: f880bf816331541408f91184657b49bb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00001554223
+      value: -0.000015491383
       objectReference: {fileID: 0}
     - target: {fileID: 5225675937700927989, guid: f880bf816331541408f91184657b49bb,
         type: 3}
@@ -63624,6 +63586,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameEssentials
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635630066709862197, guid: f880bf816331541408f91184657b49bb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -107.13
       objectReference: {fileID: 0}
     - target: {fileID: 7100146730355499953, guid: f880bf816331541408f91184657b49bb,
         type: 3}

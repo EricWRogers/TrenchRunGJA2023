@@ -38,6 +38,10 @@ public class Bullet : MonoBehaviour
             {
                 info.transform.GetComponentInParent<Health>().Damage(Mathf.RoundToInt(damage));
             }
+            if(info.transform.gameObject.GetComponentInParent<CombatHandler>() != null)
+            {
+                info.transform.gameObject.GetComponentInParent<CombatHandler>().DowngradeWeapon();
+            }
 
             DestroyBullet();
         }

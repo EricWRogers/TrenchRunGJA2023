@@ -120,11 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  speed: 20
+  speed: 100
   cullTime: 10
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   tags: []
 --- !u!114 &6206835671739734879
 MonoBehaviour:

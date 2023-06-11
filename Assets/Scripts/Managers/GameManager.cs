@@ -8,14 +8,14 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     public CinemachineVirtualCamera vCam;
 
-    private PlayerController player;
-    public static Action onGMReady;
+    public PlayerController player;
 
     new void Awake()
     {
         base.Awake();
 
-        onGMReady?.Invoke();
+
+        Debug.Log("Awake");
     }
 
     public void RegisterPlayer(PlayerController _player)

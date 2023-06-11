@@ -42,7 +42,6 @@ public class CombatHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        GetTarget();
         MoveRetical();
     }
 
@@ -89,6 +88,12 @@ public class CombatHandler : MonoBehaviour
     {
         Debug.Log("Downgrading");
 
+        if (GetComponent<PlayerController>().rolling)
+        {
+            GetComponent<PlayerController>().anim.SetTrigger("Parry");
+            return;
+        }
+
         GetComponent<PlayerController>().anim.SetTrigger("Hit");
 
         string _weaponTag = recentUpgrade;
@@ -134,7 +139,12 @@ public class CombatHandler : MonoBehaviour
 
     public void FireRocket()
     {
-
+        Debug.Log("ROCKET MAN");
+        Debug.Log($"Rocket Code is {rocketElement.GetCurrentLevelProfile().projectileObjCode}");
+        GameObject rocketProj = SimpleObjectPool.Instance.SpawnFromPool(rocketElement.GetCurrentLevelProfile().projectileObjCode, rocketProjectileSpawn.transform.position, Quaternion.identity);
+        rocketProj.transform.forward = GetTarget() - rocketProj.transform.position;
+        rocketProj.GetComponent<Missile>().speed = rocketElement.GetCurrentLevelProfile().weaponSpeed + GetComponent<PlayerController>().GetCurrentSpeed();
+        rocketProj.GetComponent<Missile>().Fire((GetTarget() - rocketProjectileSpawn.position) * rocketElement.GetCurrentLevelProfile().range);
     }
 
 

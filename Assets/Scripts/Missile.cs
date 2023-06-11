@@ -19,7 +19,7 @@ public class Missile : MonoBehaviour
     void FixedUpdate()
     {
         if (target == null)
-            Fire(lastTargetPosition);
+            FindTarget(lastTargetPosition);
         else
             lastTargetPosition = target.transform.position;
         
@@ -49,11 +49,16 @@ public class Missile : MonoBehaviour
 
     public void Fire(Vector3 _target)
     {
+        lastTargetPosition = _target;
+
         lastPosition = transform.position;
         GetComponent<Timer>().StartTimer();
 
+        FindTarget(_target);
+
+
         // Find target
-        Collider[] hitColliders = Physics.OverlapSphere(_target, radius, mask);
+       /* Collider[] hitColliders = Physics.OverlapSphere(_target, radius, mask);
         foreach (var hitCollider in hitColliders)
         {
             if (tags.Contains(hitCollider.tag)) {
@@ -66,7 +71,25 @@ public class Missile : MonoBehaviour
                         }
                 }
             }
-        }
+        }*/
+    }
+
+    public void FindTarget(Vector3 _target)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(_target, radius, mask);
+      foreach (var hitCollider in hitColliders)
+      {
+          if (tags.Contains(hitCollider.tag)) {
+              if (target == null) {
+                  target = hitCollider.gameObject;
+              } else {
+                  if (Vector3.Distance(hitCollider.gameObject.transform.position, _target) < 
+                      Vector3.Distance(target.transform.position, _target)) {
+                          target = hitCollider.gameObject;
+                      }
+              }
+          }
+      }
     }
 
     public void DestroyMissile()

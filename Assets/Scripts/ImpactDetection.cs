@@ -6,6 +6,7 @@ public class ImpactDetection : MonoBehaviour
 {
     public float impactMultiplier = 1.0f;
     public float minForce = 2.0f;
+    public float lastImpactMag = 0.0f;
 
     private Rigidbody rgbd;
 
@@ -16,7 +17,7 @@ public class ImpactDetection : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(rgbd.velocity.magnitude);
+        lastImpactMag = collision.relativeVelocity.magnitude;
         if (collision.relativeVelocity.magnitude >= minForce) {
             gameObject.GetComponent<SuperPupSystems.Helper.Health>().Damage((int)(collision.relativeVelocity.magnitude * impactMultiplier));
         }

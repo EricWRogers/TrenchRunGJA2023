@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 6543975460375593451}
   - component: {fileID: 7336740279581523240}
   - component: {fileID: 6206835671739734879}
-  m_Layer: 16
-  m_Name: Bullet
+  m_Layer: 0
+  m_Name: PlayerLaserGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bb0fd632c831464aae6493a1d151d04, type: 2}
+  - {fileID: 2100000, guid: 27b000ac7c8389f41a930feca41fa109, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,12 +119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dd33693f2fd11d68954afdba6a9ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  speed: 300
+  damage: 100
+  speed: 150
   cullTime: 10
   mask:
     serializedVersion: 2
-    m_Bits: 124151
+    m_Bits: 38135
   tags: []
   impactEffectCode: Impact
 --- !u!114 &6206835671739734879

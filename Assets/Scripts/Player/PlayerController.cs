@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float maxBankAngle = 30f;
     public float bankSpeed = 3f;
     public float rotationSpeed = 1f;
+    public float yRotationSpeed = 1f;
     public float acceleration = 5f;
     public float bankRotationSmoothness = 1f;
     public float rotationReturnSpeed = 1f;
@@ -63,6 +64,11 @@ public class PlayerController : MonoBehaviour
         lookInput = _input;
     }
 
+    public Vector2 GetLookInput()
+    {
+        return lookInput;
+    }
+
 
     public void FixedUpdate()
     {
@@ -89,11 +95,11 @@ public class PlayerController : MonoBehaviour
         float inYMouse = -mouseDelta.y * turnFactor;
 
         intX += -inXMouse * mouseGravity * Time.deltaTime;
-        intY += -inYMouse * mouseGravity * Time.deltaTime;
+        intY += inYMouse * mouseGravity * Time.deltaTime;
 
         smoothedRotation = Vector2.Lerp(smoothedRotation, new Vector2(intX, intY), .5f * Time.deltaTime);
 
-        transform.Rotate(new Vector3(rotationSpeed * smoothedRotation.y, rotationSpeed * smoothedRotation.x, 0) * Time.deltaTime, Space.Self);
+        transform.Rotate(new Vector3(yRotationSpeed * smoothedRotation.y, rotationSpeed * smoothedRotation.x, 0) * Time.deltaTime, Space.Self);
         
 
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, (-movInput.x + -smoothedRotation.x) * maxBankAngle), bankRotationSmoothness * Time.deltaTime);

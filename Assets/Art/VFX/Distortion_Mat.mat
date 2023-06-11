@@ -25,11 +25,11 @@ Material:
     MotionVector: User
     RenderType: Transparent
   disabledShaderPasses:
-  - TransparentDepthPrepass
+  - MOTIONVECTORS
   - TransparentDepthPostpass
   - TransparentBackface
   - RayTracingPrepass
-  - MOTIONVECTORS
+  - TransparentDepthPrepass
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -63,13 +63,13 @@ Material:
     - _DstBlend: 10
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _NoiseScale: 4.97
+    - _NoiseScale: 6.57
     - _OpaqueCullMode: 2
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
-    - _RefractionStrength: 0.026
+    - _RefractionStrength: 0.109
     - _RenderQueueType: 4
     - _RequireSplitLighting: 0
     - _SrcBlend: 1
@@ -93,7 +93,7 @@ Material:
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
-    - _TwirlStrength: 5.94
+    - _TwirlStrength: 7.11
     - _UseShadowThreshold: 0
     - _ZTestDepthEqualForOpaque: 2
     - _ZTestGBuffer: 4

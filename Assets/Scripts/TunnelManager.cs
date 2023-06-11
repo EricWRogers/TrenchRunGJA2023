@@ -11,6 +11,7 @@ public class TunnelManager : MonoBehaviour
     public List<string> tunnelCodes;
     public string lastTunnelPlaced;
     public string finalCode;
+    public string repeatCode;
     public bool endZone;
     public Vector3 initPlayerPos;
 
@@ -27,10 +28,15 @@ public class TunnelManager : MonoBehaviour
         exit.x = 0.0f;
         exit.y = 0.0f;
 
+        if (endZone) {
+            GameManager.Instance.GetPlayer().transform.LookAt(
+                lastTunnel.GetComponent<Tunnel>().exit.transform.position
+            );
+        }
+
         if (Vector3.Distance(tempPlayer, exit) < distanceToEnd) {
             if ((Vector3.Distance(tempPlayer, initPlayerPos) > courseLength) && endZone == false) {
                 endZone = true;
-                Debug.Log("You won!");
             }
 
             string code = lastTunnelPlaced;
@@ -41,7 +47,10 @@ public class TunnelManager : MonoBehaviour
                     code = tunnelCodes[Random.Range(0, tunnelCodes.Count)];
                 }
             } else {
-                code = finalCode;
+                if (code == finalCode)
+                    code = repeatCode;
+                else
+                    code = finalCode;
             }
 
             lastTunnelPlaced = code;

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1062190533390259159}
   - component: {fileID: 4904621795905405899}
+  - component: {fileID: 981006772400377342}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -47,15 +48,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ee30496b8c29eeea5066b6b7497de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
   target: {fileID: 0}
-  lastTargetPosition: {x: 0, y: 0, z: 0}
+  lastTargetPosition: {x: -24.538385, y: -3.12, z: -5.8}
   speed: 20
   rotationSpeed: 5
-  tags: []
+  tags:
+  - Destructable
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
+  radius: 60
+--- !u!114 &981006772400377342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063567056704894733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad54517dc19258185960ef6d2f3a1b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4904621795905405899}
+        m_TargetAssemblyTypeName: Missile, Assembly-CSharp
+        m_MethodName: DestroyMissile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AutoStart: 1
+  AutoRestart: 0
+  CountDownTime: 2
+  timeScale: 1
 --- !u!1 &3753910166051225744
 GameObject:
   m_ObjectHideFlags: 0

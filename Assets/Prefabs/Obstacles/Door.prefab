@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 1529499768042751718}
   - component: {fileID: 346887431042398001}
   - component: {fileID: 6330065384336967384}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Lock
   m_TagString: Destructable
   m_Icon: {fileID: 0}

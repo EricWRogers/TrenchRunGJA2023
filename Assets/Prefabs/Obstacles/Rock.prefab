@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8073334614709583423}
   - component: {fileID: 5434038794180576893}
   - component: {fileID: 2327653776823233001}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rock
   m_TagString: Destructable
   m_Icon: {fileID: 0}
@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactMultiplier: 1
   minForce: 2
+  lastImpactMag: 0
 --- !u!54 &2327653776823233001
 Rigidbody:
   m_ObjectHideFlags: 0

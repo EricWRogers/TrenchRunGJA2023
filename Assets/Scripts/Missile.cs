@@ -13,6 +13,7 @@ public class Missile : MonoBehaviour
     public float rotationSpeed = 5.0f;
     public List<string> tags;
     public LayerMask mask;
+    public float radius;
     private Vector3 lastPosition;
     private RaycastHit info;
     void FixedUpdate()
@@ -52,7 +53,20 @@ public class Missile : MonoBehaviour
         GetComponent<Timer>().StartTimer();
 
         // Find target
-
+        Collider[] hitColliders = Physics.OverlapSphere(_target, radius, mask);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (tags.Contains(hitCollider.tag)) {
+                if (target == null) {
+                    target = hitCollider.gameObject;
+                } else {
+                    if (Vector3.Distance(hitCollider.gameObject.transform.position, _target) < 
+                        Vector3.Distance(target.transform.position, _target)) {
+                            target = hitCollider.gameObject;
+                        }
+                }
+            }
+        }
     }
 
     public void DestroyMissile()

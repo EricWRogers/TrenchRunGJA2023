@@ -650,55 +650,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb9398da6a1e79f4aaca1b2fb400914f, type: 3}
---- !u!1 &698599656 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2063567056704894733, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
-    type: 3}
-  m_PrefabInstance: {fileID: 6020837108673255379}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &698599659 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
-    type: 3}
-  m_PrefabInstance: {fileID: 6020837108673255379}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698599656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6ee30496b8c29eeea5066b6b7497de1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &698599660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 698599656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad54517dc19258185960ef6d2f3a1b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TimeOut:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 698599659}
-        m_TargetAssemblyTypeName: Missile, Assembly-CSharp
-        m_MethodName: DestroyMissile
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  AutoStart: 1
-  AutoRestart: 0
-  CountDownTime: 2
-  timeScale: 1
 --- !u!1 &828255046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,6 +1723,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d6d25d4a9f435f42963811f3908e672, type: 3}
+--- !u!1 &1982415297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1982415298}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1982415298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982415297}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.538385, y: -3.12, z: -5.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2013410473
 GameObject:
   m_ObjectHideFlags: 1
@@ -2255,6 +2237,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420476240508453959, guid: a55dc2c0a9120cd6caef760797634d58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 469600060051541742, guid: a55dc2c0a9120cd6caef760797634d58,
         type: 3}
@@ -2800,22 +2787,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
         type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 367493148}
+      propertyPath: radius
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
         type: 3}
       propertyPath: mask.m_Bits
-      value: 1
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
+        type: 3}
+      propertyPath: lastTargetPosition.x
+      value: -24.538385
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
+        type: 3}
+      propertyPath: lastTargetPosition.y
+      value: -3.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4904621795905405899, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
+        type: 3}
+      propertyPath: lastTargetPosition.z
+      value: -5.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2063567056704894733, guid: b30e8c85a7ab4daf0be2c20851ec8bcd,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 698599660}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b30e8c85a7ab4daf0be2c20851ec8bcd, type: 3}
 --- !u!4 &6197446211036424051
 Transform:

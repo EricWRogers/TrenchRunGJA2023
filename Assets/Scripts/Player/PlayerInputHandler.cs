@@ -58,11 +58,17 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Input_onActionTriggered(CallbackContext obj)
     {
-        if(obj.action.name == controls.Player.Movement.name)
+        if (!pCon.canMove)
+        {
+            return;
+        }
+
+
+        if (obj.action.name == controls.Player.Movement.name)
         {
             pCon.UpdateMoveInput(obj.ReadValue<Vector2>());
 
-            if(obj.ReadValue<Vector2>().x >= 0.85f && !tappedOnce || obj.ReadValue<Vector2>().x <= -0.85f && !tappedOnce)
+            if (obj.ReadValue<Vector2>().x >= 0.85f && !tappedOnce || obj.ReadValue<Vector2>().x <= -0.85f && !tappedOnce)
             {
                 tappedOnce = true;
             }
@@ -71,7 +77,7 @@ public class PlayerInputHandler : MonoBehaviour
                 if (tappedOnce && releasedOnce)
                 {
                     //DO A BARREL ROLL!
-                    if(obj.ReadValue<Vector2>().x > 0)
+                    if (obj.ReadValue<Vector2>().x > 0)
                     {
                         pCon.DoABarrelRoll(false);
                     }
@@ -84,26 +90,33 @@ public class PlayerInputHandler : MonoBehaviour
                     releasedOnce = false;
                 }
             }
-            if(obj.canceled && tappedOnce)
+            if (obj.canceled && tappedOnce)
             {
                 releasedOnce = true;
             }
         }
-        if(obj.action.name == controls.Player.Look.name)
+        if (obj.action.name == controls.Player.Look.name)
         {
             pCon.UpdateLookInput(obj.ReadValue<Vector2>());
         }
-        if(obj.action.name == controls.Player.FireLaser.name)
+        if (obj.action.name == controls.Player.FireLaser.name)
         {
             FireLaser(obj);
         }
-        if(obj.action.name == controls.Player.FireRocket.name)
+        if (obj.action.name == controls.Player.FireRocket.name)
         {
             FireRocket(obj);
         }
-        if(obj.action.name == controls.Player.Boost.name)
+        if (obj.action.name == controls.Player.Boost.name)
         {
             Boost(obj);
+        }
+        if (obj.action.name == controls.Player.Pause.name)
+        {
+            if (obj.started)
+            {
+                InGameUIManager.Instance.Pause();
+            }
         }
     }
 

@@ -19,6 +19,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         Debug.Log("Awake");
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void Reset()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

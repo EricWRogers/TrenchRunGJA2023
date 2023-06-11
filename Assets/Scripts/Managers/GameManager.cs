@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Cinemachine;
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
@@ -16,6 +17,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
 
         Debug.Log("Awake");
+    }
+
+    public void Reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void RegisterPlayer(PlayerController _player)

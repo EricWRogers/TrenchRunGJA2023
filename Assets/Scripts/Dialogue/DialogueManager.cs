@@ -29,13 +29,25 @@ public class DialogueManager : MonoBehaviour
         isActive = true;
 
         Debug.Log("Started Convserations. Loading conversation : " + messages.Length);
-        DisplayMessage();
+        DisplayFirstMessage();
     }
     
-    public void DisplayMessage()
+    public void DisplayFirstMessage()
     {
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
+        //messageText.text = "";
+
+        Actor actorToDisplay = currentActors[messageToDisplay.actorId];
+        actorName.text = actorToDisplay.name;
+        actorImage.sprite = actorToDisplay.sprite;
+    }
+
+    public void DisplayMessage()
+    {
+        Message messageToDisplay = currentMessages[activeMessage];
+        //messageText.text = messageToDisplay.message;
+        messageText.text = "";
 
         Actor actorToDisplay = currentActors[messageToDisplay.actorId];
         actorName.text = actorToDisplay.name;
@@ -50,7 +62,6 @@ public class DialogueManager : MonoBehaviour
             DisplayMessage();
             StopAllCoroutines();
             StartCoroutine(TypeMessage(currentMessages[activeMessage]));
-
         } 
         else
         {

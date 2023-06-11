@@ -11,6 +11,15 @@ public class DialogueTrigger : MonoBehaviour
     {
         FindObjectOfType<DialogueManager>().OpenDialogue(messages, actors);
     }
+
+    public void OnTriggerEnter(Collider col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            Debug.Log("Hit");
+            StartDialogue();
+        }
+    }
 }
 
 [System.Serializable]

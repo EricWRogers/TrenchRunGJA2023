@@ -15,6 +15,9 @@ public class TunnelManager : MonoBehaviour
     public bool endZone;
     public Vector3 initPlayerPos;
 
+    public GameObject sweaper;
+    public float sweapSpeed = 50.0f;
+
     void Start() {
         initPlayerPos = GameManager.Instance.GetPlayer().transform.position;
     }
@@ -27,6 +30,8 @@ public class TunnelManager : MonoBehaviour
         Vector3 exit = lastTunnel.GetComponent<Tunnel>().exit.transform.position;
         exit.x = 0.0f;
         exit.y = 0.0f;
+
+        //sweaper.transform.position = 
 
         if (endZone) {
             GameManager.Instance.GetPlayer().transform.LookAt(

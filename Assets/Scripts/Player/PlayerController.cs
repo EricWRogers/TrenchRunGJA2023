@@ -6,26 +6,31 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    private Rigidbody rb;
+    public Animator anim;
     public float mouseGravity;
     public float turnFactor = 5f;
     public float speed = 3f;
-    public float maxBankAngle = 30f;
+    public float boostSpeed = 10f;
     public float bankSpeed = 3f;
+    public float speedChangeSmoothness = 1f;
     public float rotationSpeed = 1f;
     public float yRotationSpeed = 1f;
     public float acceleration = 5f;
+    public float maxBankAngle = 30f;
     public float bankRotationSmoothness = 1f;
     public float rotationReturnSpeed = 1f;
     public float rotateRange;
 
 
 
+    private Rigidbody rb;
     private Vector2 movInput, lookInput;
     // Store the previous position of the object
     private Vector3 previousPosition;
     private Vector2 previousMousePosition;
     private Vector2 smoothedRotation = new Vector2();
+    private float currentSpeed;
+    private bool boosting;
 
     float intX, intY;
 
@@ -65,6 +70,24 @@ public class PlayerController : MonoBehaviour
     public Vector2 GetLookInput()
     {
         return lookInput;
+    }
+
+    public void ToggleBoost(bool _boost)
+    {
+        boosting = _boost;
+        anim.SetBool("Boosting", boosting);
+    }
+
+    public void DoABarrelRoll(bool _left)
+    {
+        if (_left)
+        {
+            anim.SetTrigger("RollLeft");
+        }
+        else
+        {
+            anim.SetTrigger("RollRight");
+        }
     }
 
 
@@ -116,12 +139,36 @@ public class PlayerController : MonoBehaviour
         forwardVector.Normalize();
         rightVector.Normalize();
 
+        if(movInput.y < 0)
+        {
+            if(anim.GetBool("Breaking") != true)
+            {
+                anim.SetBool("Breaking", true);
+            }
+        }
+        else
+        {
+            anim.SetBool("Breaking", false);
+        }
+
         Vector3 desiredVector = (movInput.y * forwardVector) + ((movInput.x * rightVector) * bankSpeed);
         desiredVector = desiredVector + (this.transform.forward.normalized * 2);
 
         Vector3 movementVector = desiredVector;
 
-        Vector3 desiredVelocity = movementVector * speed;
+        float desiredSpeed;
+        if (boosting)
+        {
+            desiredSpeed = boostSpeed;
+        }
+        else
+        {
+            desiredSpeed = speed;
+        }
+
+        currentSpeed = Mathf.Lerp(currentSpeed, desiredSpeed, speedChangeSmoothness * Time.deltaTime);
+
+        Vector3 desiredVelocity = movementVector * currentSpeed;
         Vector3 velocityChange = desiredVelocity - rb.velocity;
 
         // Limit the change in velocity to avoid exponential acceleration

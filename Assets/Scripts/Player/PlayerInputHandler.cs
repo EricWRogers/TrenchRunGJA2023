@@ -8,6 +8,8 @@ using static UnityEngine.InputSystem.InputAction;
 [RequireComponent(typeof(PlayerController))]
 public class PlayerInputHandler : MonoBehaviour
 {
+    public float doubleTapCooldown = 1f;
+
     [HideInInspector]
     public MainPlayer controls;
 
@@ -16,6 +18,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     private PlayerController pCon;
     private CombatHandler combatHandler;
+    private float currentDoubleTapTime;
+    private bool tappedOnce;
 
     private void Awake()
     {
@@ -23,6 +27,20 @@ public class PlayerInputHandler : MonoBehaviour
 
         pCon = GetComponent<PlayerController>();
         combatHandler = GetComponent<CombatHandler>();
+    }
+
+    private void Update()
+    {
+        if (tappedOnce)
+        {
+            currentDoubleTapTime += Time.deltaTime;
+
+            if(currentDoubleTapTime >= doubleTapCooldown)
+            {
+                tappedOnce = false;
+                currentDoubleTapTime = 0;
+            }
+        }
     }
 
     public void InitializeInput()
@@ -42,6 +60,25 @@ public class PlayerInputHandler : MonoBehaviour
         if(obj.action.name == controls.Player.Movement.name)
         {
             pCon.UpdateMoveInput(obj.ReadValue<Vector2>());
+            if (obj.performed)
+            {
+                if (tappedOnce && obj.ReadValue<Vector2>().x != 0)
+                {
+                    //DO A BARREL ROLL!
+                    if(obj.ReadValue<Vector2>().x > 0)
+                    {
+                        pCon.DoABarrelRoll(false);
+                    }
+                    else
+                    {
+                        pCon.DoABarrelRoll(true);
+                    }
+                }
+                else
+                {
+                    tappedOnce = true;
+                }
+            }
         }
         if(obj.action.name == controls.Player.Look.name)
         {
@@ -50,6 +87,10 @@ public class PlayerInputHandler : MonoBehaviour
         if(obj.action.name == controls.Player.FireLaser.name)
         {
             FireLaser(obj);
+        }
+        if(obj.action.name == controls.Player.Boost.name)
+        {
+            Boost(obj);
         }
     }
 
@@ -66,6 +107,18 @@ public class PlayerInputHandler : MonoBehaviour
         if (obj.started)
         {
             combatHandler.FireLaser();
+        }
+    }
+
+    private void Boost(CallbackContext obj)
+    {
+        if (obj.started)
+        {
+            pCon.ToggleBoost(true);
+        }
+        if (obj.canceled)
+        {
+            pCon.ToggleBoost(false);
         }
     }
 

@@ -57,3 +57,7 @@ MonoBehaviour:
     prefab: {fileID: 8638258263721992372, guid: d7727857348fa16489e9d037890ad5e7,
       type: 3}
     size: 30
+  - code: laser_proj
+    prefab: {fileID: 6646372730498481773, guid: a65e5e944fe443042bc2e6ed602c300f,
+      type: 3}
+    size: 30

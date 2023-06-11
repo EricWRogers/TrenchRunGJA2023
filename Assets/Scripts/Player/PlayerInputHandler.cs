@@ -15,16 +15,19 @@ public class PlayerInputHandler : MonoBehaviour
     public PlayerInput playerInput;
 
     private PlayerController pCon;
+    private CombatHandler combatHandler;
 
     private void Awake()
     {
         controls = new MainPlayer();
 
         pCon = GetComponent<PlayerController>();
+        combatHandler = GetComponent<CombatHandler>();
     }
 
     public void InitializeInput()
     {
+        Debug.Log("yay we did it");
         playerInput.onActionTriggered += Input_onActionTriggered;
     }
 
@@ -43,6 +46,26 @@ public class PlayerInputHandler : MonoBehaviour
         if(obj.action.name == controls.Player.Look.name)
         {
             pCon.UpdateLookInput(obj.ReadValue<Vector2>());
+        }
+        if(obj.action.name == controls.Player.FireLaser.name)
+        {
+            FireLaser(obj);
+        }
+    }
+
+    private void FireLaser(CallbackContext obj)
+    {
+        if (obj.started)
+        {
+            combatHandler.FireLaser();
+        }
+    }
+
+    private void FireRocket(CallbackContext obj)
+    {
+        if (obj.started)
+        {
+            combatHandler.FireLaser();
         }
     }
 

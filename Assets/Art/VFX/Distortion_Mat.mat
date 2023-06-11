@@ -69,7 +69,7 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
-    - _RefractionStrength: 0.109
+    - _RefractionStrength: 0.574
     - _RenderQueueType: 4
     - _RequireSplitLighting: 0
     - _SrcBlend: 1
@@ -93,7 +93,7 @@ Material:
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
-    - _TwirlStrength: 7.11
+    - _TwirlStrength: 8.41
     - _UseShadowThreshold: 0
     - _ZTestDepthEqualForOpaque: 2
     - _ZTestGBuffer: 4

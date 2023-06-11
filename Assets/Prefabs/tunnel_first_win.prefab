@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exit: {fileID: 2035253130249280613}
+  portExit: {fileID: 0}
 --- !u!1 &7311736465842789305
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,8 +200,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5838046679449777798, guid: 3c7474fbd81c0fa438fed819559fc203,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 350.2428
+      objectReference: {fileID: 0}
+    - target: {fileID: 5838046679449777798, guid: 3c7474fbd81c0fa438fed819559fc203,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 238.475
+      objectReference: {fileID: 0}
+    - target: {fileID: 5838046679449777798, guid: 3c7474fbd81c0fa438fed819559fc203,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.22636414
+      value: 19.3
       objectReference: {fileID: 0}
     - target: {fileID: 5838046679449777798, guid: 3c7474fbd81c0fa438fed819559fc203,
         type: 3}

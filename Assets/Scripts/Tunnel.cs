@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SuperPupSystems.Helper;
 
 public class Tunnel : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class Tunnel : MonoBehaviour
     {
         foreach(GameObject go in objectsToSetActive) {
             go.SetActive(true);
+
+            if (go.GetComponent<Health>() != null) {
+                go.GetComponent<Health>().CurrentHealth = go.GetComponent<Health>().MaxHealth;
+            }
         }
     }
 }

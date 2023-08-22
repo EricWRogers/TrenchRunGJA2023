@@ -138,7 +138,7 @@ public class CombatHandler : MonoBehaviour
 
     public void FireLaser()
     {
-        GameObject laserProj = SimpleObjectPool.Instance.SpawnFromPool(laserElement.GetCurrentLevelProfile().projectileObjCode, laserProjectileSpawn.transform.position, Quaternion.identity);
+        GameObject laserProj = SimpleObjectPool.instance.SpawnFromPool(laserElement.GetCurrentLevelProfile().projectileObjCode, laserProjectileSpawn.transform.position, Quaternion.identity);
         laserProj.GetComponent<Bullet>().speed = laserElement.GetCurrentLevelProfile().weaponSpeed + GetComponent<PlayerController>().GetCurrentSpeed();
         laserProj.transform.forward =  GetTarget() - laserProj.transform.position;
     }
@@ -147,7 +147,7 @@ public class CombatHandler : MonoBehaviour
     {
         Debug.Log("ROCKET MAN");
         Debug.Log($"Rocket Code is {rocketElement.GetCurrentLevelProfile().projectileObjCode}");
-        GameObject rocketProj = SimpleObjectPool.Instance.SpawnFromPool(rocketElement.GetCurrentLevelProfile().projectileObjCode, rocketProjectileSpawn.transform.position, Quaternion.identity);
+        GameObject rocketProj = SimpleObjectPool.instance.SpawnFromPool(rocketElement.GetCurrentLevelProfile().projectileObjCode, rocketProjectileSpawn.transform.position, Quaternion.identity);
         rocketProj.transform.forward = GetTarget() - rocketProj.transform.position;
         rocketProj.GetComponent<Missile>().speed = rocketElement.GetCurrentLevelProfile().weaponSpeed + GetComponent<PlayerController>().GetCurrentSpeed();
         rocketProj.GetComponent<Missile>().Fire((GetTarget() - rocketProjectileSpawn.position) * rocketElement.GetCurrentLevelProfile().range);

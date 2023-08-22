@@ -64,7 +64,7 @@ public class TunnelManager : MonoBehaviour
                 lastTunnel.GetComponent<Tunnel>().portExit.SetActive(false);
             }
 
-            lastTunnel = SuperPupSystems.Helper.SimpleObjectPool.Instance.SpawnFromPool(
+            lastTunnel = SuperPupSystems.Helper.SimpleObjectPool.instance.SpawnFromPool(
                 code,
                 lastTunnel.GetComponent<Tunnel>().exit.transform.position,
                 Quaternion.identity

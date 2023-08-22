@@ -18,7 +18,7 @@ public class JunkPortal : MonoBehaviour
             Vector3.Distance(transform.position,radiusHandle.position)
         );
 
-        GameObject gO = SuperPupSystems.Helper.SimpleObjectPool.Instance.SpawnFromPool(
+        GameObject gO = SuperPupSystems.Helper.SimpleObjectPool.instance.SpawnFromPool(
             "trash_code",
             eye.transform.position,
             Quaternion.identity

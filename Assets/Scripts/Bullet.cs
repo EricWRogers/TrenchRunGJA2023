@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         timer = GetComponent<Timer>();
-        timer.TimeOut.AddListener(DestroyBullet);
+        timer.timeout.AddListener(DestroyBullet);
     }
 
     private void FixedUpdate()
@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
 
             if(impactEffectCode != "")
             {
-                GameObject laserProj = SimpleObjectPool.Instance.SpawnFromPool(impactEffectCode, this.transform.position, Quaternion.identity);
+                GameObject laserProj = SimpleObjectPool.instance.SpawnFromPool(impactEffectCode, this.transform.position, Quaternion.identity);
             }
             DestroyBullet();
         }

@@ -90,7 +90,7 @@ public class Missile : MonoBehaviour
     { 
         gameObject.SetActive(false); 
         // spawn explosion 
-        GameObject explosion = SuperPupSystems.Helper.SimpleObjectPool.Instance.SpawnFromPool( 
+        GameObject explosion = SuperPupSystems.Helper.SimpleObjectPool.instance.SpawnFromPool( 
             "missile_explosion", 
             transform.position, 
             Quaternion.identity 

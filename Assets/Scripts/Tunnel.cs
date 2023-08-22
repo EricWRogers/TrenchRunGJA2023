@@ -15,7 +15,7 @@ public class Tunnel : MonoBehaviour
             go.SetActive(true);
 
             if (go.GetComponent<Health>() != null) {
-                go.GetComponent<Health>().CurrentHealth = go.GetComponent<Health>().MaxHealth;
+                go.GetComponent<Health>().currentHealth = go.GetComponent<Health>().maxHealth;
             }
         }
     }

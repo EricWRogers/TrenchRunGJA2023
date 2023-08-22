@@ -30,7 +30,7 @@ public class Turret : MonoBehaviour
         if (Vector3.Distance(target.transform.position, firePoint.position) > range)
             return;
         Debug.Log("Bang");
-        GameObject bullet = SuperPupSystems.Helper.SimpleObjectPool.Instance.SpawnFromPool(
+        GameObject bullet = SuperPupSystems.Helper.SimpleObjectPool.instance.SpawnFromPool(
             "enemy_bullet",
             firePoint.position,
             Quaternion.identity
